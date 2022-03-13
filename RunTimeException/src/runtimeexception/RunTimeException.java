@@ -72,13 +72,15 @@ public class RunTimeException extends Application {
                 /**Imagen Ataque Jugador **/
 
             Image image3 = new Image(jg.getUrlImagenAtaque());
+        
+           
            
             root.getChildren().add(jg.spriteAtaque(image3));
                 
                  /**Imagen Ataque Enemigo **/
 
             Image image5 = new Image(en.getUrlImagenAtaqueEnemigo());
-            
+         
             root.getChildren().add(en.spriteAtaqueEnemigo(image5));
          
 
@@ -87,7 +89,24 @@ public class RunTimeException extends Application {
            /**Imagen Jugador posiciones **/
             
             Image image = new Image(jg.getUrlImagen());
-
+            /** BARRA SALUD **/
+    Rectangle hpJugador = new Rectangle();
+            hpJugador.setX(30);
+            hpJugador.setY(260);
+            hpJugador.setWidth(100);
+            hpJugador.setHeight(25);
+            hpJugador.setFill(Color.GREEN);
+            /**BARRA SALUD NEGATIVA **/
+            Rectangle hpJugadorNegativo = new Rectangle();
+               hpJugadorNegativo.setX(30);
+            hpJugadorNegativo.setY(260);
+            hpJugadorNegativo.setWidth(100);
+            hpJugadorNegativo.setHeight(25);
+            hpJugadorNegativo.setFill(Color.RED);
+            
+            
+            root.getChildren().add(hpJugadorNegativo);
+            root.getChildren().add(hpJugador);
             root.getChildren().add(jg.spriteIntegrada(image));
             
 
@@ -95,7 +114,26 @@ public class RunTimeException extends Application {
             /** Imagen Enemigo posiciones **/
             
             Image image4 = new Image(en.getUrlImagenEnemigo());
-
+            
+            /**BARRA SALUD ENEMIGO **/
+            
+  Rectangle hpEnemigo =new Rectangle();
+            hpEnemigo.setX(980);
+            hpEnemigo.setY(260);
+            hpEnemigo.setWidth(100);
+            hpEnemigo.setHeight(25);
+            hpEnemigo.setFill(Color.GREEN);
+            
+            /** BARRA SALUD ENEMIGO NEGATIVA **/
+            
+            Rectangle hpEnemigoNegativo =new Rectangle();
+            hpEnemigoNegativo.setX(980);
+            hpEnemigoNegativo.setY(260);
+            hpEnemigoNegativo.setWidth(100);
+            hpEnemigoNegativo.setHeight(25);
+            hpEnemigoNegativo.setFill(Color.RED);
+            root.getChildren().add(hpEnemigoNegativo);
+            root.getChildren().add(hpEnemigo);
             root.getChildren().add(en.spriteIntegradoEnemigo(image4));
           
 
@@ -107,23 +145,23 @@ public class RunTimeException extends Application {
             root.setBackground(new Background(myBI));
              animationball = new Timeline(
                     new KeyFrame(Duration.seconds(segundos), (ActionEvent ae)-> {
-                        imagex += imgcurrentspeed;
+                     imagex += imgcurrentspeed;
                         jg.spriteIntegrada(image).setY(imagey);
-                        jg.spriteIntegrada(image).setX(imagex);
+                         jg.spriteIntegrada(image).setX(imagex);
 
                         misilx += misilspeed;
-                        jg.spriteAtaque(image3).setY(misily);
+                       jg.spriteAtaque(image3).setY(misily);
                         jg.spriteAtaque(image3).setX(misilx);
 
                         misilmalox += misilmalospeed;
                         en.spriteAtaqueEnemigo(image5).setY(misilmaloy);
-                        en.spriteAtaqueEnemigo(image5).setX(misilmalox);
+                        en.spriteAtaqueEnemigo(image5).setX(misilmalox);;
 
-                     /**   stickPosY += stickCurrentSpeed;
-                        rect.setY(stickPosY);**/
-
-                     /**   ballCenterX+= ballCurrentSpeedX;
-                        circleball.setCenterX(ballCenterX);**/
+//                        stickPosY += stickCurrentSpeed;
+//                        rect.setY(stickPosY);
+//
+//                        ballCenterX+= ballCurrentSpeedX;
+//                        circleball.setCenterX(ballCenterX);
 //                        if (ballCenterX >= TAMX){
 //                            ballCurrentSpeedX = -3;
 //                        }
@@ -136,7 +174,7 @@ public class RunTimeException extends Application {
                             misilmalospeed = 0.0001f;
                             animationball.pause();
                             en.spriteAtaqueEnemigo(image5).setLayoutX(1030);
-                            en.spriteAtaqueEnemigo(image5).setLayoutY(330);
+                             en.spriteAtaqueEnemigo(image5).setLayoutY(330);
                             misilmalox = 0;
                             jg.spriteAtaque(image3).setLayoutX(50);
                             jg.spriteAtaque(image3).setLayoutY(325);
@@ -201,8 +239,10 @@ public class RunTimeException extends Application {
 
             launch();
         }
-
+  
         public void justMakeItStop(){
             animationball.stop();
         }
+
+  
     }
