@@ -15,14 +15,22 @@ import javafx.scene.image.ImageView;
 public class Enemigo extends Personaje {
     private String urlImagenEnemigo="file:ovni.png";
     private String urlImagenAtaqueEnemigo="file:MissilVerde.png";
+    private int x;
+    private int y;
+    private int lX;
+    private int lY;
     public Enemigo(int hp) {
         super(hp);
     }
 
-    public Enemigo(int hp, String urlImagenEnemigo, String urlImagenAtaqueEnemigo) {
+    public Enemigo(int hp, String urlImagenEnemigo, String urlImagenAtaqueEnemigo, int x, int y, int lX, int lY) {
         super(hp);
         this.urlImagenEnemigo = urlImagenEnemigo;
         this.urlImagenAtaqueEnemigo=urlImagenAtaqueEnemigo;
+        this.x=x;
+        this.y=y;
+        this.lX=lX;
+        this.lY=lY;
     }
 
     public ImageView spriteIntegradoEnemigo (Image image4) {
@@ -46,7 +54,7 @@ public class Enemigo extends Personaje {
             mv5.setFitWidth(50);
             mv5.setRotate(-90);
             mv5.setPreserveRatio(true);
-            
+          
             return mv5;
     }
 
@@ -64,5 +72,37 @@ public class Enemigo extends Personaje {
 
     public void setUrlImagenAtaqueEnemigo(String urlImagenAtaqueEnemigo) {
         this.urlImagenAtaqueEnemigo = urlImagenAtaqueEnemigo;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public int getlX() {
+        return lX;
+    }
+
+    public void setlX(int lX) {
+        this.lX = lX;
+    }
+
+    public int getlY() {
+        return lY;
+    }
+
+    public void setlY(int lY) {
+        this.lY = lY;
     }
 }
